@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Login Page</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script type="text/javascript">
+        function clearMessage() {
+            try {
+                var name = window.parent.frames["message"].document.getElementById("username");
+                if (name != "") {
+                    window.parent.frames["message"].location.reload();
+                }
+            } catch (e) { }
+        }
+        
+        //username input checking
+       function checkInput(e) {
+            // username cannot be empty
+
+            var nameInput = document.getElementById("name");
+            var nameVal = nameInput.value.trim();
+            if (nameVal == "") {
+                alert("User name cannot be empty!");
+                e.preventDefault();
+                return 0;
+            }
+
+            // username cannot contain illeagl character
+            var illChars = "\"\';:<>[](){}!$#@%^&*-+=";
+            for (var i = 0; i < illChars.length; i++) {
+                if (nameVal.includes(illChars.charAt(i))) {   
+                    alert("Invalid user name!");
+                    e.preventDefault();
+                return 0;
+                }
+            }
+            //make variables and move
+
+            // after checking username must ensure to check this as well for further update on status and changes similiar method to above for insurance
+                var getcheck=document.getElementById("checker_f").value;
+                var checkup = getcheck;
+                //check for empty and accordingly change for the better. great way
+                if (checkup == "") {
+
+                alert("Please select a file");
+                //send alert message and use same procedure as above
+                e.preventDefault();
+                return 0;
+
+
+           }
+            //make variables and move
+
+           // user has to upload these particular formats onlyyyyy yyyy||!!!
+           var ext = checkup.substring(checkup.lastIndexOf('.') + 1);
+           //correct checker making sure it is correct formt...
+           var nottiedto=1;
+           var notmovingcurrently=0;
+           var trashnow=false;
+            //make variables and move
+
+           if (!(ext == "jpg" || ext == "svg" || ext == "png" || ext == "jpeg")) {
+
+                alert("Please choose valid format: PNG JPG SVG JPEG");
+                e.preventDefault();
+                return 0;
+           }
+           return 1;
+        }        
+        </script>
+    </head>
+
+
+    <body onload="clearMessage()">
+        <form enctype="multipart/form-data" method="post" action="login.php" onsubmit="javascript:checkInput(event)">
+            <table border="0" cellpadding="5" cellspacing="0">
+                <tr>
+                    <td>ENTER YOUR USERNAME:</td>
+                    <td><input class="text" name="name" id="name" type="text" placeholder="Enter Username" size="20" maxlength="10" /></td>
+                </tr>
+                <tr>
+                    <td>CHOOSE PICTURE FORMATS ACCEPTED: SVG JPG JPEG PNG</td>
+                    <td><input type="file" name="movier" id="checker_f"></td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2"><input class="button" type="submit" value="Go!" style="width: 150px" /></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,146 @@
+th {
+    padding: 10.5px;
+}
+
+.usergettable {
+  border: 1px solid #000;
+    width: 50%;
+    border-spacing: 0px;
+    margin-left: auto;
+  margin-right: auto;
+}
+
+
+body > table > tbody > tr > td:nth-child(1) > button {
+  position: relative;
+  background-color: black;
+  border: none;
+  font-size: 28px;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+body > table > tbody > tr > td:nth-child(1) > button:after {
+  content: "";
+  background: brown;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+body > table > tbody > tr > td:nth-child(1) > button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+body > table > tbody > tr > td:nth-child(2) > form > input{
+   position: relative;
+  background-color: black;
+  border: none;
+  font-size: 28px;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+body > table > tbody > tr > td:nth-child(2) > form > input:after{
+padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+body > table > tbody > tr > td:nth-child(2) > form > input:active:after{
+  position: relative;
+  background-color: brown;
+  border: none;
+  font-size: 28px;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#checker_f{
+    transition-duration: 0.4s;
+}
+
+#checker_f:hover {
+  background-color: yellow; /* Green */
+  color: green;
+}
+
+.button {
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+body {
+    font-family: Trebuchet MS, sans-serif;
+    font-weight: bold;
+    margin: 0px;
+    padding: 5px;
+    background: brown;
+    width: 800px;
+    text-align: center;
+}
+form {
+    margin: 0px;
+    padding: 0px;
+}
+input.text {
+    font-family: Trebuchet MS, sans-serif;
+    font-size: 12pt;
+    border: 1px solid black;
+    background: white;
+}
+input.button {
+    font-family: Trebuchet MS, sans-serif;
+    font-size: 10pt;
+    border: 1px solid black;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    background: lightgray;
+}
+
+
+
+.changepic {
+   width: 50px;
+    height: 50px;
+}
+
+
+
+tr:not(:first-child) td {
+     border-top:1pt solid blue;
+}
+
+
+

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Of Online User List </title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script>
+        //predefined functions userd for checking
+        //only one link added to ensure correct formatting done
+
+        //checj varuabele sand continue to move
+        var getidfromuseronce=true;
+        var request;
+        var dontmove=1;
+        var sizeofdata;
+        var newtimechecker = null;
+        var unuseddonttouch=0;
+        var upanddown=null;
+
+
+
+        //check states and accordingly change each corresponding function
+        function stateChange() {
+            //defined by previous function
+            if (request.status == 200 && request.readyState == 4 && request.responseText) {
+                
+                var newparsefrom = new DOMParser();
+
+                var getxmld;
+                var unknowntoward;
+                var onetotwoget;
+
+                getxmld = newparsefrom.parseFromString(request.responseText, "text/xml");
+
+                var checkfalsefromt=1;
+                //keep checking and update
+                sizeofdata = request.responseText.length;
+                //make sure to update in this order
+                nextstep(getxmld);
+                
+                getUpdate();
+            }
+        }
+
+        //safely check and add comments to keep
+
+
+        //function given in lab to ensure correct data has been entered
+        function getUpdate() {
+            request =new XMLHttpRequest();
+            request.onreadystatechange = stateChange;
+            request.open("POST", "server.php", 1);
+        //safely check and add comments to keep
+        // check and add comments to keep to resend and move
+
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send("datasize=" + sizeofdata);
+        }
+
+
+
+    function nextstep(xmlDoc) {
+        //get tags and accordingly change
+            var getusernamet = xmlDoc.getElementsByTagName("user");
+            //make variables and move
+            var newunknow=1;
+            var gtformthree=0;
+            //create files used for later
+            var getfilename;
+            var getnameN;
+        //safely check and add comments to keep
+
+            var j=0;
+            var userfind=getusernamet.length;
+            while(j<userfind){
+                getnameN = getusernamet[j].getAttribute('name');
+
+
+                getfilename = getusernamet[j].getAttribute('filepath');
+                //add to existing creation cleverly and format
+                var combinefile='<tr>' + getnameN + '</td>' + '</tr>';
+
+        //safely check and add comments to keep
+
+                var newimageupload='<td> <img  class="changepic" src="' + getfilename  + '"/></td><td>';
+                
+                var newcombine='<tr>'  + '</tr>';
+
+        // check and add comments to keep
+
+                
+            //make variables and move
+
+                document.getElementById('userlist').innerHTML = document.getElementById('userlist').innerHTML + '<tr>' + newimageupload + getnameN + '</td>' + '</tr>';
+//inc
+                ++j;
+            }
+        }
+
+
+            //make variables and move
+
+
+        function load() {
+            newtimechecker = null;
+            //get size of data and check each var
+            sizeofdata = 0;
+
+            getidfromuseronce=1;
+            //make variables and move
+            //make variables and move
+
+            unuseddonttouch=0;
+            //go back for update and check after all these conditions
+            getUpdate();
+        }
+
+        
+
+
+    
+
+
+
+    </script>
+</head>
+<body onload="load()">
+
+    <table class="usergettable" cellspacing="0" cellpadding="0">
+        
+            <tr>
+
+                <td style="color:yellow;font-weight: bold; text-decoration: underline;">Picture</td>
+
+                <td style="color:yellow;font-weight: bold; text-decoration: underline;">User Name</td>
+
+
+            </tr>
+    
+
+        <tbody id="userlist"></tbody>
+
+    </table>
+
+
+</body>
+</html>
